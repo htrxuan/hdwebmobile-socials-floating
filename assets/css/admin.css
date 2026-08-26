@@ -1,0 +1,75 @@
+.hdsocials-wrap h1 {
+    margin-bottom: 20px;
+}
+.hdsocials-wrap .form-table th {
+    font-weight: 600;
+}
+
+/* Drag and drop placeholder */
+.hdsocials-sortable-placeholder {
+    display: table-row;
+    background-color: #f0f0f1;
+    border: 1px dashed #c3c4c7;
+}
+
+.hdsocials-drag-handle {
+    cursor: grab !important;
+    transition: background 0.2s;
+}
+
+.hdsocials-drag-handle:active {
+    cursor: grabbing !important;
+}
+
+.hdsocials-drag-handle:hover {
+    background: #e0e0e0 !important;
+}
+
+/* Business Hours Schedule Table */
+.hdsocials-bh-schedule {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 750px;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.hdsocials-bh-schedule td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ccd0d4;
+    vertical-align: middle;
+}
+
+.hdsocials-bh-schedule tr:last-child td {
+    border-bottom: none;
+}
+
+.hdsocials-bh-schedule tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.hdsocials-bh-radios {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    white-space: nowrap;
+}
+
+.hdsocials-bh-radios label {
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hdsocials-bh-times {
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.hdsocials-bh-times input[type="time"] {
+    max-width: 130px;
+}

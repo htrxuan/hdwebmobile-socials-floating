@@ -1,0 +1,227 @@
+/* Base variables */
+:root {
+    --hdsocials-bg-color: #000000;
+    --hdsocials-icon-size: 40px;
+    --hdsocials-gap: 12px;
+    --hdsocials-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Container styling */
+.hdsocials-floating-bar {
+    position: fixed;
+    z-index: 99999;
+    display: flex;
+    padding: 12px;
+    background: var(--hdsocials-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: var(--hdsocials-transition);
+    max-height: calc(100vh - 24px);
+    max-width: calc(100vw - 24px);
+    overflow: auto;
+}
+
+/* Positions */
+.hdsocials-pos-left {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    flex-direction: column;
+    gap: var(--hdsocials-gap);
+}
+
+.hdsocials-pos-right {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    flex-direction: column;
+    gap: var(--hdsocials-gap);
+}
+
+.hdsocials-pos-bottom {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    gap: var(--hdsocials-gap);
+}
+
+.hdsocials-pos-top {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    gap: var(--hdsocials-gap);
+}
+
+.hdsocials-pos-bottom_left {
+    bottom: 20px;
+    left: 20px;
+    flex-direction: column;
+    gap: var(--hdsocials-gap);
+}
+
+.hdsocials-pos-bottom_right {
+    bottom: 20px;
+    right: 20px;
+    flex-direction: column;
+    gap: var(--hdsocials-gap);
+}
+
+.hdsocials-pos-top_left {
+    top: 20px;
+    left: 20px;
+    flex-direction: column;
+    gap: var(--hdsocials-gap);
+}
+
+.hdsocials-pos-top_right {
+    top: 20px;
+    right: 20px;
+    flex-direction: column;
+    gap: var(--hdsocials-gap);
+}
+
+/* Icons */
+.hdsocials-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--hdsocials-icon-size);
+    height: var(--hdsocials-icon-size);
+    border-radius: 50%;
+    background: var(--hdsocials-icon-bg, rgba(0, 0, 0, 0.1));
+    box-shadow: inset 0 0 0 1px var(--hdsocials-border-color, rgba(255, 255, 255, 0.2));
+    color: var(--hdsocials-icon-color, #ffffff);
+    text-decoration: none;
+    transition: var(--hdsocials-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.hdsocials-icon svg {
+    width: 20px;
+    height: 20px;
+    transition: var(--hdsocials-transition);
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* Hover Effects */
+.hdsocials-icon:hover {
+    transform: translateY(-3px) scale(1.1);
+    background: var(--hdsocials-hover-bg, rgba(255, 255, 255, 0.2));
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure child elements glow on hover */
+.hdsocials-icon:hover svg {
+    filter: drop-shadow(0 2px 8px var(--hdsocials-icon-color, rgba(255, 255, 255, 0.8)));
+}
+
+/* Active effect */
+.hdsocials-icon:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* Brand specific hover colors (optional override if users want brand colors rather than bg-color) */
+/*
+.hdsocials-facebook:hover svg { color: #1877F2; }
+.hdsocials-twitter:hover svg { color: #000000; }
+.hdsocials-instagram:hover svg { color: #E4405F; }
+.hdsocials-linkedin:hover svg { color: #0A66C2; }
+.hdsocials-youtube:hover svg { color: #FF0000; }
+.hdsocials-tiktok:hover svg { color: #000000; }
+*/
+
+/* Expandable Toggle Settings */
+.hdsocials-is-expandable {
+    gap: 0;
+    transition: gap 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), max-height 0.4s ease, max-width 0.4s ease;
+}
+
+.hdsocials-is-expandable .hdsocials-icon:not(.hdsocials-toggle) {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transform: scale(0);
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hdsocials-is-expandable:hover {
+    gap: var(--hdsocials-gap);
+}
+
+.hdsocials-is-expandable:hover .hdsocials-icon:not(.hdsocials-toggle) {
+    width: var(--hdsocials-icon-size);
+    height: var(--hdsocials-icon-size);
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Toggle Icon SVGs */
+.hdsocials-toggle .hdsocials-svg-plus {
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* Ensure toggle stays visible on hover to provide a stable hover bridge */
+.hdsocials-is-expandable:hover .hdsocials-toggle {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Business Hours: Offline states */
+.hdsocials-offline {
+    opacity: 0.4;
+    filter: grayscale(60%);
+    cursor: not-allowed;
+    pointer-events: none; /* prevent clicks */
+}
+
+/* Don't apply hover effects to offline icons */
+.hdsocials-offline:hover {
+    transform: none;
+    background: var(--hdsocials-icon-bg, rgba(0, 0, 0, 0.1));
+    box-shadow: inset 0 0 0 1px var(--hdsocials-border-color, rgba(255, 255, 255, 0.2));
+}
+
+.hdsocials-offline:hover svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.hdsocials-offline-badge {
+    position: relative;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.hdsocials-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #e74c3c;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 8px;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* reset grayscale for the badge itself so it stays red */
+    filter: grayscale(0%); 
+}
