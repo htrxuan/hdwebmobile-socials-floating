@@ -30,6 +30,9 @@ It also automatically generates deep links for platforms like WhatsApp, Zalo, an
 *   Configurable floating background color.
 *   Add a custom SVG icon and link.
 
+= Enjoying this plugin? =
+If it helps your site, please consider [leaving an honest review on WordPress.org](https://wordpress.org/support/plugin/hdwebmobile-socials-floating/reviews/#new-post) -- it helps other WordPress users find it. Found a problem or have an idea? Please [open a support topic](https://wordpress.org/support/plugin/hdwebmobile-socials-floating/) first so it can be fixed.
+
 == Installation ==
 
 1. Upload the plugin folder to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
